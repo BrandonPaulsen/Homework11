@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage{fullpage, latexsym, picinpar, amsmath, amsfonts, bm, algorithm, caption, rotating, hyperref, enumitem}
+\usepackage[noend]{algpseudocode}
+
+\input{macros.texi}
+\date{}
+
+\newcommand{\handout}[2]{
+  \noindent
+  {{\LARGE #1}}
+
+  {\small
+  \parskip 0ex
+  \flushright{
+    Algorithms (Fall 2025)
+
+    University of San Francisco
+
+    #2
+
+  }
+  }
+  \vspace{10px}
+  \vspace{1cm}
+  }
+
+  \parindent 0in
+  \parskip 1.5ex
+  \newcommand{\pluseq}{\mathrel{+}=}
+  \newcommand{\minuseq}{\mathrel{-}=}
+  \newcommand{\plusplus}{\mathrel{+}\mathrel{+}}
+  \newcommand{\minusminus}{\mathrel{-}\mathrel{-}}
+
+  \begin{document}
+
+  \handout{Homework 11: CS 603\\ {\small (Polynomial Reductions)}}{Due: Friday, November $21^{st}$}{\bf Brandon Paulsen}
+
+  \hrulefill
+
+  %========================================Problem 1=========================================%
+  %========================================15 Points=========================================%
+  % [x] Visible test cases
+  %     [x] Test case 1                                                               2 points
+  %     [x] Test case 2                                                               2 points
+  %     [x] Test case 3                                                               2 points
+  % [x] Hidden test cases
+  %     [x] Test case 1                                                               2 points
+  %     [x] Test case 2                                                               2 points
+  %     [x] Test case 3                                                               2 points
+  % [x] State and explain time complexity                                             3 points
+  \vskip 0.25in
+  \begin{problem}
+    You live in a very bizarre apartment with a very long hallway filled with unusual light switches.
+    You need to go to bed, and thus want to turn off all the lights.
+    Say the light switches are numbered $1, 2, 3, \dots, n$ as you walk down the hallway.
+    There are also $n$ lights that you encounter as you walk down the hallway, one next to each switch, so you would guess that the switch changes the light is is next to.
+    But no, your mischievous landlord has set up the light switches to do something unexpected: when you flip switch 1, all the lights $1, 2, 3, \dots n$ change.
+    (If they were on, they're now off. If they were off, then they're now on.)
+    And in general, if you flip the $i^th$ switch, then lkights $i, i + 1, i + 2, \dots, n$ change.
+    You want to get to bed as quickly as possible because you know that sleep is good for your brain and body.
+
+    Please write a method \texttt{minFlips} that will calculate the minimum number of light switches you need to flip in order to turn off all the lights.
+    The input for this method is an array \texttt{lights[]} whose entries are 0 or 1; a value of 0 indicates the light is off, and a value of 1 indicates the light is on.
+    The starter code for this problem is here: \url{https://classroom.github.com/a/ioSsBG73}.
+
+    Please also state and explain the time complexity of your solution.
+
+    EXTRA CREDIT!! Please explain (prove) why your solution works.
+    (Not only is this problem worth the extra credit of one "activity", it is good proof practice for those of you wanting more practice!)
+  \end{problem}
+
+  \pagebreak
+
+  \begin{solution}
+
+  \end{solution}
+
+  \pagebreak
+
+  %========================================Problem 2=========================================%
+  %========================================15 Points=========================================%
+  % [ ] Correct construction of variable gadgets                                      4 points
+  % [ ] Correct construction of clause gadgets                                        4 points
+  % [ ] Correct construction of cleanup gadgets                                       4 points
+  % [ ] Explaination of appropriateness                                               3 points
+  \vskip 0.25in
+  \begin{problem}
+    The problem is to make sure you understood the gadget construction which was used to show that 3-dimensional matching is NP-complete.
+    Suppose we have an instance of 3-SAT which is the following:
+    There are 3 variables and 2 clauses:
+    $x_1, x_2, x_3$ are the variables and the clauses are:
+    $$C_1 = x_1 \lor x_1 \lor \overline{x_3}$$
+    $$C_2 = \overline{x_1} \lor x_23 \lor x_3$$
+
+    Please draw the gadget construction which corresponds to the instance of 3-dimensional matching that we constructed from this instance of 3-SAT.
+    Don't forget the cleanup gadgets (although if you want, you can just describe what they are and how many there are, so your drawing doesn't get too messy).
+  \end{problem}
+
+  \pagebreak
+
+  \begin{solution}
+
+  \end{solution}
+
+  \pagebreak
+
+  %========================================Problem 3=========================================%
+  %========================================15 Points=========================================%
+  % [ ] Explain why problem is in NP                                                  3 points
+  % [ ] Translate instance of NP problem into this problem                            4 points
+  % [ ] Explain why translation is polynomial time                                    2 points
+  % [ ] Explain why two problems are equivalent                                       6 points
+  \vskip 0.25in
+  \begin{problem}
+    General Leia Organa has $n$ resistance platoons, with $a_i$ troops in platoon $i$, $i \in {1, 2, 3, \dots, n}$.
+    There are two different battles she needs to send the troops to, and she'd like to split these platoons into two groups so that there is an equal number of troops going to each of the two battles.
+    In other words, she wants to know if there exists $S \subset {1, 2, \dots, n}$ such that 
+
+    $$\sum_{i \in S} a_i = \sum_{j \in {1, 2, \dots, n}, j \not \in S} a_j$$
+
+    Please prove to General Organa that this problem is NP-complete.
+  \end{problem}
+
+  \pagebreak
+
+  \begin{solution}
+    Let's start with some general notation. Let:
+    \begin{itemize}
+      \item $T$ be the troop problem
+      \item $P = \left\{p_1, p_2, \dots, p_n \right\}$ be the size of each platoon (an input of the troop problem).
+      \item $B_1 \subset \{1, 2, \dots, n\}$ be those platoons assigned to battle 1 (a certificate of $P$).
+      \item $B_2 \subset \{1, 2, \dots, n\} = \{1, 2, \dots, n\} \setminus B_1$ be those platoons assigned to battle 2 (an equivalent certificate of $P$).
+    \end{itemize}
+
+    In order to prove that the troop problem $T$ is NP-complete, we must prove the following:
+    \begin{enumerate}
+      \item
+        $T$ is in $\mathcal{NP}$ by proving:
+        \begin{enumerate}[label=\alph*.]
+          \item There is a polynomial time certifier of $T$ given input $P$ and certificate $B_1$.
+          \item There is a certificate $B_1$ such that $|B_1|$ is polynomial in the size of input $|P|$.
+        \end{enumerate}
+      \item
+        There is some algorithm $Y$ in $\mathcal{NP}$ such that it can be polynomial time reduced into $T$.
+    \end{enumerate}
+
+    The certifier $C$ can be defined as:
+    \begin{algorithm}
+      \begin{algorithmic}[1]
+        \State $c_1 \leftarrow 0$
+        \State $s_1 \leftarrow 0$
+        \For{each $p_i \in B_1$}
+          \State $c_1 \leftarrow c_1 + 1$
+          \State $s_1 \leftarrow s_1 + p_i$
+        \EndFor
+        \State $c_1 \leftarrow 0$
+        \State $S_2 \leftarrow 0$
+        \For{each $p_i \in B_2 = S \setminus B_1$}
+          \State $c_2 \leftarrow c_2 + 1$
+          \State $S_2 \leftarrow S_2 + p_i$
+        \EndFor
+        \If{$c_1 \neq c_2$}
+          \State \Return False
+        \EndIf
+        \State \Return True
+      \end{algorithmic}
+      \caption{Certifier}
+      \label{Fig1}
+    \end{algorithm}
+
+
+    Proving 1a:
+
+    Algorithm~\ref{Fig1} certainly certifies $T$, as it checks that $B_1$ and $B_2$ are the same size and have the same sum and 
+    takes $O(|S|)$ time because we iterate $B_1 \cup B_2 = S$ times and we do a constant amount of work per iteration.
+    Since $O(|S|)$ is polynomial in $|S|$ and the algorithm correctly certifies $T$, $T$ has an efficient certifier.
+
+    Proving 1b:
+
+    Since $B_1 \subset P$, $|B_1| \leq |P|$, so $|B_1| \in O(|P|)$ which is polynomial in $|P|$.
+
+    Proving 2:
+
+    We will prove that there is some algorithm $Y$ in $\mathcal{NP}$ 
+
+     
+  \end{solution}
+
+  \pagebreak
+
+\end{document}
