@@ -112,11 +112,11 @@
 % [x] Explain why two problems are equivalent                                       6 points
 \vskip 0.25in
 \begin{problem}
-    General Leia Organa has $n$ resistance platoons, with $a_i$ troops in platoon $i$, $i \in {1, 2, 3, \dots, n}$.
+    General Leia Organa has $n$ resistance platoons, with $a_i$ troops in platoon $i$, $i \in \{1, 2, 3, \dots, n\}$.
     There are two different battles she needs to send the troops to, and she'd like to split these platoons into two groups so that there is an equal number of troops going to each of the two battles.
-    In other words, she wants to know if there exists $S \subset {1, 2, \dots, n}$ such that 
+    In other words, she wants to know if there exists $S \subset \{1, 2, \dots, n\}$ such that 
 
-    $$\sum_{i \in S} a_i = \sum_{j \in {1, 2, \dots, n}, j \not \in S} a_j$$
+    $$\sum_{i \in S} a_i = \sum_{j \in \{1, 2, \dots, n\}, j \not \in S} a_j$$
 
     Please prove to General Organa that this problem is NP-complete.
 \end{problem}
@@ -130,7 +130,7 @@
         \begin{itemize}
           \item $P = \left\{p_1, p_2, \dots, p_n \right\}$ be the size of each platoon (an input of the troop problem).
           \item $B_1 \subset \left\{1, 2, \dots, n\right\}$ be the indices of those platoons assigned to battle 1 (a certificate of $P$).
-          \item $P_1 = \left\{ p_{b_1} \forall \, b_1 \in B_1 \right\}$ be those platoons assigned to battle 1.
+          \item $P_1 = \left\{ p_{b_1} \forall \, b_1 \in B_1 \right\} \subset P$ be those platoons assigned to battle 1.
           \item $B_2 \subset \left\{ 1, 2, \dots, n \right\} = \left\{1, 2, \dots, n\right\} \setminus B_1$ be the indices of be those platoons assigned to battle 2 (an equivalent certificate of $P$).
           \item $P_2 = \left\{ p_{b_2} \forall \, b_2 \in B_2 \right\} = P \setminus P_1$ be those platoons assigned to battle 2.
         \end{itemize}
