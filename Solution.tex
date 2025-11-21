@@ -126,13 +126,21 @@
 \begin{solution}
     Let's start with some general notation. Let:
     \begin{itemize}
-        \item $T$ be the troop problem
-        \item $S$ be the subset sum problem
-        \item $P = \left\{p_1, p_2, \dots, p_n \right\}$ be the size of each platoon (an input of the troop problem).
-        \item $B_1 \subset \left\{1, 2, \dots, n\right\}$ be the indices of those platoons assigned to battle 1 (a certificate of $P$).
-        \item $P_1 = \left\{ p_{b_1} \forall \, b_1 \in B_1 \right\}$ be those platoons assigned to battle 1.
-        \item $B_2 \subset \left\{ 1, 2, \dots, n \right\} = \left\{1, 2, \dots, n\right\} \setminus B_1$ be the indices of be those platoons assigned to battle 2 (an equivalent certificate of $P$).
-        \item $P_2 = \left\{ p_{b_2} \forall \, b_2 \in B_2 \right\} = P \setminus P_1$ be those platoons assigned to battle 2.
+        \item $T$ be the troop problem with:
+        \begin{itemize}
+          \item $P = \left\{p_1, p_2, \dots, p_n \right\}$ be the size of each platoon (an input of the troop problem).
+          \item $B_1 \subset \left\{1, 2, \dots, n\right\}$ be the indices of those platoons assigned to battle 1 (a certificate of $P$).
+          \item $P_1 = \left\{ p_{b_1} \forall \, b_1 \in B_1 \right\}$ be those platoons assigned to battle 1.
+          \item $B_2 \subset \left\{ 1, 2, \dots, n \right\} = \left\{1, 2, \dots, n\right\} \setminus B_1$ be the indices of be those platoons assigned to battle 2 (an equivalent certificate of $P$).
+          \item $P_2 = \left\{ p_{b_2} \forall \, b_2 \in B_2 \right\} = P \setminus P_1$ be those platoons assigned to battle 2.
+        \end{itemize}
+
+        \item $S$ be the subset sum problem with:
+        \begin{itemize}
+          \item $W$ the target value
+          \item $E = \{e_1, e_2, \dots, e_n\}$ the value of each element
+          \item $F \subseteq E$ such that $\sum_{e \in F} e = W$ be a certificate of $T$.
+        \end{itemize}
     \end{itemize}
 
     In order to prove that the troop problem $T$ is NP-complete, we must prove the following:
@@ -151,7 +159,7 @@
             \end{enumerate}
     \end{enumerate}
 
-    Proving 1a:
+    \textbf{Proving 1a:}
 
     We can define a certifier for $T$ as:
     \begin{algorithm}
@@ -181,11 +189,11 @@
     Algorithm~\ref{Fig1} certainly certifies $T$, as it checks that $\sum_{b_1 \in B_1} p_{b_1} = \sum_{b_2 \in B_2} p_{b_2}$, $B_1 \cup B_2 = P$, and $B_1 \cap B_2 = \varnothing$ and takes $O(|P|)$ time because we iterate $|B_1 \cup B_2| = |P|$ times and we do a constant amount of work per iteration.
     Since $O(|P|)$ is polynomial in $|P|$ and the algorithm correctly certifies $T$, so $T$ has an efficient certifier.
 
-    Proving 1b:
+    \textbf{Proving 1b:}
 
     Since $B_1 \subset P$, $|B_1| \leq |P|$, so $|B_1| \in O(|P|)$ which is polynomial in $|P|$.
 
-    Proving 2a:
+    \textbf{Proving 2a:}
 
     In order to prove that there is some NP-complete problem $Y$ such that $Y$ can be polynomial time reduced to $T$, we must first select some NP-complete problem $Y$ to reduce.
     There are many NP-complete problems to pick from, and our choice greatly impacts the method of polynomial reduction to $T$.
@@ -194,8 +202,6 @@
 
     For the troop problem, we must select $B_1$ such that $\sum_{p_i \in P_1} p_i = \sum_{p_j \in P_2} p_j$.
     A similar NP-complete problem that seems reasonable to select is subset sum.
-    In subset sum, we are given some set of elements $E = \{e_1, e_2, \dots, e_n\}$ and some target value $W$ and must select some subset $F \subseteq E$ such that $\sum_{e \in F} e = W$.
-
     In order to reduce an instance of subset sum $S = (E, \, W)$ to an instance of $T = (P)$, we must construct a set of platoons $P$ such that the troop problem is true if and only if the subset sum problem is true.
     So what should $P$ be?
 
@@ -218,14 +224,15 @@
     What happens if we select $A$ with the minimal sum satisfying this relation:
 
         $$\sum_{a \in A} a = \sum_{e \in E} e + 1$$
-        $$\Rightarrow \sum_{p \in P} p = 2 \sum_{e \in E} e + 1$$
+        $$\Rightarrow \sum_{p \in P} p = \sum_{a \in A} a + \sum_{e \in E} e = 2 \sum_{e \in E} e + 1$$
 
     But this is odd, which we cannot have if the troop problem is to be solvable.
     What if it was just a little larger?
 
         $$\sum_{a \in A} a = \sum_{e \in E} e + 2$$
-        $$\Rightarrow \sum_{p \in P} p = 2 \sum_{e \in E} e + 2$$
+        $$\Rightarrow \sum_{p \in P} p = \sum_{a \in A} a + \sum_{e \in E} e = 2 \sum_{e \in E} e + 2$$
 
+    Since this is even, we have a valid instance of the troop problem.
     Now, we have a value for $a_1 + a_2$, but what should the values be?
     Consider what it means for $a_1$ and $a_2$ to be in different partitions of $P$.
     Without loss of generality, let $a_1 \in P_1$.
@@ -233,8 +240,37 @@
     This sounds exactly like the subset sum problem!
     In order for this to be exactly analogous to the subset sum problem, the sum of the subset of elements in $P_1$ must be $W$:
 
-    $$\sum_{p \in P_1} p = a_1 + W$$
-    $$\Rightarrow \sum_{p \in P} = 2 \sum_{2 \in P_1} = 2a_1 + W$$
+      $$\sum_{p \in P_1} p = a_1 + W$$
+
+    And since we are splitting $P$ into $P_1$ and $P_2$ that have equal sums,
+
+      $$2\left(\sum_{e \in E} e + 1\right) = \sum_{p \in P} p = \sum_{p \in P_1} p + \sum_{p \in P_2} p = 2 \sum_{p \in P_1} p = 2\left(a_1 + W\right)$$
+      $$\Rightarrow 2\left(\sum_{e \in E} e + 1 \right) = 2 \left(a_1 + W\right)$$
+      $$\Rightarrow \sum_{e \in E} e + 1 = a_1 + W$$
+      $$\Rightarrow a_1 = \sum_{e \in E} e + 1 - W$$
+
+    Now we know a value for $a_1$, but what about $a_2$?
+    We know the value for $a_1 + a_2$, so we can simply subtract $a_1$ from that value to get $a_2$:
+
+      $$a_1 + a_2 = \sum_{e \in E} e + 2$$
+      $$\Rightarrow a_2= \sum_{e \in E} e + 2 - a_1$$
+      $$\Rightarrow a_2 = \sum_{e \in E} e + 2 - \left(\sum_{e \in E} e + 1 - W \right)$$
+      $$\Rightarrow a_2 = W + 1$$
+
+    Now, we have fully defined an instance of the troop problem given a general instance of the subset sum problem $S = (E, W)$:
+    
+      $$P = E \cup \left\{ \sum_{e \in E} e + 1 - W, W + 1\right\}$$
+
+
+    By construction, solving this instance of the troop problem is exactly analogous to selecting a subset of the element of the subset sum problem whose values add up to $W$, and therefore, their outcomes must be equivalent.
+
+    \textbf{Proving 2b:}
+
+    In order to translate a subset sum instance into a troop problem instance, we add two elements ($O(2)$ is polynomial in any input) whose values we compute by summing all subset sum elements $E$ (in $O(|E|)$ time, which is polynomial in input size).
+    Additionally, we use polynomially many calls to a black box solver of the troop problem (1 call is polynomial in any input).
+    Overall, this is polynomial in $|E|$, so this reduction is indeed polynomial time.
+    This proves that $S \leq_{p} T$, and $S$ is NP-complete, so $T$ must also be NP-complete.
+
 \end{solution}
 
 \pagebreak
