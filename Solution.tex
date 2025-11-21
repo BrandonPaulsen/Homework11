@@ -1,55 +1,55 @@
 \documentclass{article}
-\usepackage{fullpage, latexsym, picinpar, amsmath, amsfonts, bm, algorithm, caption, rotating, hyperref, enumitem}
+\usepackage{fullpage, latexsym, picinpar, amsmath, amsfonts, amssymb, bm, algorithm, caption, rotating, hyperref, enumitem}
 \usepackage[noend]{algpseudocode}
 
 \input{macros.texi}
 \date{}
 
 \newcommand{\handout}[2]{
-  \noindent
-  {{\LARGE #1}}
+    \noindent
+    {{\LARGE #1}}
 
-  {\small
-  \parskip 0ex
-  \flushright{
-    Algorithms (Fall 2025)
+    {\small
+    \parskip 0ex
+    \flushright{
+        Algorithms (Fall 2025)
 
-    University of San Francisco
+        University of San Francisco
 
-    #2
+        #2
 
-  }
-  }
-  \vspace{10px}
-  \vspace{1cm}
-  }
+    }
+    }
+    \vspace{10px}
+    \vspace{1cm}
+}
 
-  \parindent 0in
-  \parskip 1.5ex
-  \newcommand{\pluseq}{\mathrel{+}=}
-  \newcommand{\minuseq}{\mathrel{-}=}
-  \newcommand{\plusplus}{\mathrel{+}\mathrel{+}}
-  \newcommand{\minusminus}{\mathrel{-}\mathrel{-}}
+\parindent 0in
+\parskip 1.5ex
+\newcommand{\pluseq}{\mathrel{+}=}
+\newcommand{\minuseq}{\mathrel{-}=}
+\newcommand{\plusplus}{\mathrel{+}\mathrel{+}}
+\newcommand{\minusminus}{\mathrel{-}\mathrel{-}}
 
-  \begin{document}
+\begin{document}
 
-  \handout{Homework 11: CS 603\\ {\small (Polynomial Reductions)}}{Due: Friday, November $21^{st}$}{\bf Brandon Paulsen}
+\handout{Homework 11: CS 603\\ {\small (Polynomial Reductions)}}{Due: Friday, November $21^{st}$}{\bf Brandon Paulsen}
 
-  \hrulefill
+\hrulefill
 
-  %========================================Problem 1=========================================%
-  %========================================15 Points=========================================%
-  % [x] Visible test cases
-  %     [x] Test case 1                                                               2 points
-  %     [x] Test case 2                                                               2 points
-  %     [x] Test case 3                                                               2 points
-  % [x] Hidden test cases
-  %     [x] Test case 1                                                               2 points
-  %     [x] Test case 2                                                               2 points
-  %     [x] Test case 3                                                               2 points
-  % [x] State and explain time complexity                                             3 points
-  \vskip 0.25in
-  \begin{problem}
+%========================================Problem 1=========================================%
+%========================================15 Points=========================================%
+% [x] Visible test cases
+%     [x] Test case 1                                                               2 points
+%     [x] Test case 2                                                               2 points
+%     [x] Test case 3                                                               2 points
+% [x] Hidden test cases
+%     [x] Test case 1                                                               2 points
+%     [x] Test case 2                                                               2 points
+%     [x] Test case 3                                                               2 points
+% [x] State and explain time complexity                                             3 points
+\vskip 0.25in
+\begin{problem}
     You live in a very bizarre apartment with a very long hallway filled with unusual light switches.
     You need to go to bed, and thus want to turn off all the lights.
     Say the light switches are numbered $1, 2, 3, \dots, n$ as you walk down the hallway.
@@ -67,24 +67,24 @@
 
     EXTRA CREDIT!! Please explain (prove) why your solution works.
     (Not only is this problem worth the extra credit of one "activity", it is good proof practice for those of you wanting more practice!)
-  \end{problem}
+\end{problem}
 
-  \pagebreak
+\pagebreak
 
-  \begin{solution}
+\begin{solution}
 
-  \end{solution}
+\end{solution}
 
-  \pagebreak
+\pagebreak
 
-  %========================================Problem 2=========================================%
-  %========================================15 Points=========================================%
-  % [ ] Correct construction of variable gadgets                                      4 points
-  % [ ] Correct construction of clause gadgets                                        4 points
-  % [ ] Correct construction of cleanup gadgets                                       4 points
-  % [ ] Explaination of appropriateness                                               3 points
-  \vskip 0.25in
-  \begin{problem}
+%========================================Problem 2=========================================%
+%========================================15 Points=========================================%
+% [ ] Correct construction of variable gadgets                                      4 points
+% [ ] Correct construction of clause gadgets                                        4 points
+% [ ] Correct construction of cleanup gadgets                                       4 points
+% [ ] Explaination of appropriateness                                               3 points
+\vskip 0.25in
+\begin{problem}
     The problem is to make sure you understood the gadget construction which was used to show that 3-dimensional matching is NP-complete.
     Suppose we have an instance of 3-SAT which is the following:
     There are 3 variables and 2 clauses:
@@ -94,24 +94,24 @@
 
     Please draw the gadget construction which corresponds to the instance of 3-dimensional matching that we constructed from this instance of 3-SAT.
     Don't forget the cleanup gadgets (although if you want, you can just describe what they are and how many there are, so your drawing doesn't get too messy).
-  \end{problem}
+\end{problem}
 
-  \pagebreak
+\pagebreak
 
-  \begin{solution}
+\begin{solution}
 
-  \end{solution}
+\end{solution}
 
-  \pagebreak
+\pagebreak
 
-  %========================================Problem 3=========================================%
-  %========================================15 Points=========================================%
-  % [ ] Explain why problem is in NP                                                  3 points
-  % [ ] Translate instance of NP problem into this problem                            4 points
-  % [ ] Explain why translation is polynomial time                                    2 points
-  % [ ] Explain why two problems are equivalent                                       6 points
-  \vskip 0.25in
-  \begin{problem}
+%========================================Problem 3=========================================%
+%========================================15 Points=========================================%
+% [x] Explain why problem is in NP                                                  3 points
+% [x] Translate instance of NP problem into this problem                            4 points
+% [x] Explain why translation is polynomial time                                    2 points
+% [x] Explain why two problems are equivalent                                       6 points
+\vskip 0.25in
+\begin{problem}
     General Leia Organa has $n$ resistance platoons, with $a_i$ troops in platoon $i$, $i \in {1, 2, 3, \dots, n}$.
     There are two different battles she needs to send the troops to, and she'd like to split these platoons into two groups so that there is an equal number of troops going to each of the two battles.
     In other words, she wants to know if there exists $S \subset {1, 2, \dots, n}$ such that 
@@ -119,73 +119,124 @@
     $$\sum_{i \in S} a_i = \sum_{j \in {1, 2, \dots, n}, j \not \in S} a_j$$
 
     Please prove to General Organa that this problem is NP-complete.
-  \end{problem}
+\end{problem}
 
-  \pagebreak
+\pagebreak
 
-  \begin{solution}
+\begin{solution}
     Let's start with some general notation. Let:
     \begin{itemize}
-      \item $T$ be the troop problem
-      \item $P = \left\{p_1, p_2, \dots, p_n \right\}$ be the size of each platoon (an input of the troop problem).
-      \item $B_1 \subset \{1, 2, \dots, n\}$ be those platoons assigned to battle 1 (a certificate of $P$).
-      \item $B_2 \subset \{1, 2, \dots, n\} = \{1, 2, \dots, n\} \setminus B_1$ be those platoons assigned to battle 2 (an equivalent certificate of $P$).
+        \item $T$ be the troop problem
+        \item $S$ be the subset sum problem
+        \item $P = \left\{p_1, p_2, \dots, p_n \right\}$ be the size of each platoon (an input of the troop problem).
+        \item $B_1 \subset \left\{1, 2, \dots, n\right\}$ be the indices of those platoons assigned to battle 1 (a certificate of $P$).
+        \item $P_1 = \left\{ p_{b_1} \forall \, b_1 \in B_1 \right\}$ be those platoons assigned to battle 1.
+        \item $B_2 \subset \left\{ 1, 2, \dots, n \right\} = \left\{1, 2, \dots, n\right\} \setminus B_1$ be the indices of be those platoons assigned to battle 2 (an equivalent certificate of $P$).
+        \item $P_2 = \left\{ p_{b_2} \forall \, b_2 \in B_2 \right\} = P \setminus P_1$ be those platoons assigned to battle 2.
     \end{itemize}
 
     In order to prove that the troop problem $T$ is NP-complete, we must prove the following:
     \begin{enumerate}
-      \item
-        $T$ is in $\mathcal{NP}$ by proving:
-        \begin{enumerate}[label=\alph*.]
-          \item There is a polynomial time certifier of $T$ given input $P$ and certificate $B_1$.
-          \item There is a certificate $B_1$ such that $|B_1|$ is polynomial in the size of input $|P|$.
-        \end{enumerate}
-      \item
-        There is some algorithm $Y$ in $\mathcal{NP}$ such that it can be polynomial time reduced into $T$.
+        \item
+            $T$ is in $\mathcal{NP}$ by proving:
+            \begin{enumerate}[label=\alph*.]
+                \item There is a polynomial time certifier of $T$ given input $P$ and certificate $B_1$.
+                \item There is a certificate $B_1$ such that $|B_1|$ is polynomial in the size of input $|P|$ and the certifier of $T$ returns true for $P$ and $B_1$.
+            \end{enumerate}
+        \item
+            There is some NP-complete problem $Y$ such that it can be polynomial time reduced into $T$ by proving:
+            \begin{enumerate}[label=\alph*.]
+                \item There is a problem $Y$ that can be reduced to $T$.
+                \item The reduction from $Y$ to $T$ is polynomial in the input to $Y$.
+            \end{enumerate}
     \end{enumerate}
-
-    The certifier $C$ can be defined as:
-    \begin{algorithm}
-      \begin{algorithmic}[1]
-        \State $c_1 \leftarrow 0$
-        \State $s_1 \leftarrow 0$
-        \For{each $p_i \in B_1$}
-          \State $c_1 \leftarrow c_1 + 1$
-          \State $s_1 \leftarrow s_1 + p_i$
-        \EndFor
-        \State $c_1 \leftarrow 0$
-        \State $S_2 \leftarrow 0$
-        \For{each $p_i \in B_2 = S \setminus B_1$}
-          \State $c_2 \leftarrow c_2 + 1$
-          \State $S_2 \leftarrow S_2 + p_i$
-        \EndFor
-        \If{$c_1 \neq c_2$}
-          \State \Return False
-        \EndIf
-        \State \Return True
-      \end{algorithmic}
-      \caption{Certifier}
-      \label{Fig1}
-    \end{algorithm}
-
 
     Proving 1a:
 
-    Algorithm~\ref{Fig1} certainly certifies $T$, as it checks that $B_1$ and $B_2$ are the same size and have the same sum and 
-    takes $O(|S|)$ time because we iterate $B_1 \cup B_2 = S$ times and we do a constant amount of work per iteration.
-    Since $O(|S|)$ is polynomial in $|S|$ and the algorithm correctly certifies $T$, $T$ has an efficient certifier.
+    We can define a certifier for $T$ as:
+    \begin{algorithm}
+        \begin{algorithmic}[1]
+            \State $t \leftarrow 0$
+            \State $s_1 \leftarrow 0$
+            \State $s_2 \leftarrow 0$
+            \For{$i \in \{1, 2, \dots, n\}$}
+                \State $t \leftarrow t + 1$
+                \If{$i \in B_1$}
+                    \State $s_1 \leftarrow s_1 + p_i$
+                \ElsIf{$i \in B_2 = \{1, 2, \dots, n\} \setminus B_1$}
+                    \State $s_2 \leftarrow s_2 + p_i$
+                \Else
+                    \State \Return False
+                \EndIf
+            \EndFor
+            \If{$t \neq n$}
+                \State \Return False
+            \EndIf
+            \State \Return $s_1 = s_2$
+        \end{algorithmic}
+        \caption{Certifier}
+        \label{Fig1}
+    \end{algorithm}
+
+    Algorithm~\ref{Fig1} certainly certifies $T$, as it checks that $\sum_{b_1 \in B_1} p_{b_1} = \sum_{b_2 \in B_2} p_{b_2}$, $B_1 \cup B_2 = P$, and $B_1 \cap B_2 = \varnothing$ and takes $O(|P|)$ time because we iterate $|B_1 \cup B_2| = |P|$ times and we do a constant amount of work per iteration.
+    Since $O(|P|)$ is polynomial in $|P|$ and the algorithm correctly certifies $T$, so $T$ has an efficient certifier.
 
     Proving 1b:
 
     Since $B_1 \subset P$, $|B_1| \leq |P|$, so $|B_1| \in O(|P|)$ which is polynomial in $|P|$.
 
-    Proving 2:
+    Proving 2a:
 
-    We will prove that there is some algorithm $Y$ in $\mathcal{NP}$ 
+    In order to prove that there is some NP-complete problem $Y$ such that $Y$ can be polynomial time reduced to $T$, we must first select some NP-complete problem $Y$ to reduce.
+    There are many NP-complete problems to pick from, and our choice greatly impacts the method of polynomial reduction to $T$.
+    Selecting $Y$ that is similar (in some sense) to $T$ presents the most straightforward polynomial reduction.
 
-     
-  \end{solution}
 
-  \pagebreak
+    For the troop problem, we must select $B_1$ such that $\sum_{p_i \in P_1} p_i = \sum_{p_j \in P_2} p_j$.
+    A similar NP-complete problem that seems reasonable to select is subset sum.
+    In subset sum, we are given some set of elements $E = \{e_1, e_2, \dots, e_n\}$ and some target value $W$ and must select some subset $F \subseteq E$ such that $\sum_{e \in F} e = W$.
+
+    In order to reduce an instance of subset sum $S = (E, \, W)$ to an instance of $T = (P)$, we must construct a set of platoons $P$ such that the troop problem is true if and only if the subset sum problem is true.
+    So what should $P$ be?
+
+    In order for $T$ to be true, $P$ must be able to be spit into two sets $P_1$ and $P_2$ with equal sums, so $\sum_{p \in P} p$ must be even.
+    In order for $S \Leftrightarrow T$, we must have $E \subseteq P$, since removing any element in $E$ might change the outcome of a given instance of $S$.
+    So, we must construct $P$ by adding some elements $A$ to $E$ such that $P$ has an even sum: $P = E \cup A \mid \sum_{p \in P} p \equiv 0 \pmod{2}$.
+    
+    But there are lots of even numbers - what should $\sum_{p \in P} p$ be?
+    Consider what would happen if $A = \{a_1, a_2\}$ and $a_1$ and $a_2$ were too large to both be in either $P_1$ or $P_2$.
+    Since $P$ gets split into $P_1$ and $P_2$ and $a_1$ and $a_2$ must be too large to be in either $P_1$ or $P_2$, we must have:
+    
+        $$\sum_{a \in A} a > \frac{\sum_{p \in P} p}{2}$$
+
+    And since $P = E \cup A$,
+
+        $$\sum_{p \in P} p = \sum_{e \in E} e + \sum_{a \in A} a$$
+        $$\Rightarrow \sum_{a \in A} a > \frac{\sum_{e \in E} e + \sum_{a \in A} a}{2}$$
+        $$\Rightarrow \sum_{a \in A} a > \sum_{e \in E} e$$
+
+    What happens if we select $A$ with the minimal sum satisfying this relation:
+
+        $$\sum_{a \in A} a = \sum_{e \in E} e + 1$$
+        $$\Rightarrow \sum_{p \in P} p = 2 \sum_{e \in E} e + 1$$
+
+    But this is odd, which we cannot have if the troop problem is to be solvable.
+    What if it was just a little larger?
+
+        $$\sum_{a \in A} a = \sum_{e \in E} e + 2$$
+        $$\Rightarrow \sum_{p \in P} p = 2 \sum_{e \in E} e + 2$$
+
+    Now, we have a value for $a_1 + a_2$, but what should the values be?
+    Consider what it means for $a_1$ and $a_2$ to be in different partitions of $P$.
+    Without loss of generality, let $a_1 \in P_1$.
+    Since $a_1$ and $a_2$ are in different partitions, $P_1$ must contain $a_1$ as well as some subset of $E$.
+    This sounds exactly like the subset sum problem!
+    In order for this to be exactly analogous to the subset sum problem, the sum of the subset of elements in $P_1$ must be $W$:
+
+    $$\sum_{p \in P_1} p = a_1 + W$$
+    $$\Rightarrow \sum_{p \in P} = 2 \sum_{2 \in P_1} = 2a_1 + W$$
+\end{solution}
+
+\pagebreak
 
 \end{document}
